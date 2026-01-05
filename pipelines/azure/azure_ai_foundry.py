@@ -818,7 +818,8 @@ class Pipe:
         """
         if url:
             # Create markdown link: [[doc1]](url)
-            return f"[[doc{doc_num}]]({url})"
+            # return f"[[doc{doc_num}]]({url})"
+            return f"[doc{doc_num}]"
         else:
             # No URL available, keep original reference
             return f"[doc{doc_num}]"
@@ -903,7 +904,7 @@ class Pipe:
 
         # If we couldn't find any references, include all citations (backward compatibility)
         if not referenced_indices:
-            referenced_indices = set(range(1, len(citations) + 1))
+            referenced_indices = set()
             log.debug(
                 f"No [docX] references found in content, including all {len(citations)} citations"
             )
